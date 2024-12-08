@@ -2,8 +2,6 @@
 
 A modular security framework for AI models and inference endpoints, integrating seamlessly into DevSecOps pipelines like Jenkins, GitHub Actions, and SonarQube. **AI Security Pipeline** provides robust tools for scanning, monitoring, and safeguarding AI models against emerging threats.
 
----
-
 ## Features
 
 - **Static Model Analysis**: Detect unsafe code or vulnerabilities in serialized AI models.
@@ -11,8 +9,6 @@ A modular security framework for AI models and inference endpoints, integrating 
 - **LLM-Specific Security**: Identify vulnerabilities in Large Language Models (LLMs) such as prompt injection and memory attacks.
 - **Supply Chain Security**: Monitor and validate the integrity of AI/ML artifacts in CI/CD pipelines.
 - **Deployment Monitoring**: Continuous threat monitoring for deployed inference endpoints.
-
----
 
 ## Modules Overview
 
@@ -35,8 +31,6 @@ A modular security framework for AI models and inference endpoints, integrating 
 5. **Deployment Monitoring**:
    - Tool: [HiddenLayer Model Scanner](https://hiddenlayer.com/model-scanner)
    - Provides real-time monitoring of deployed AI endpoints.
-
----
 
 ## Installation
 
