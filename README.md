@@ -1,36 +1,54 @@
-# AI Security Pipeline
+# AI Secure Pipeline
 
-A modular security framework for AI models and inference endpoints, integrating seamlessly into DevSecOps pipelines like Jenkins, GitHub Actions, and SonarQube. **AI Security Pipeline** provides robust tools for scanning, monitoring, and safeguarding AI models against emerging threats.
+A modular and comprehensive framework to safeguard AI models and inference endpoints against emerging threats, integrating seamlessly into DevSecOps pipelines like Jenkins, GitHub Actions, and SonarQube. 
 
 ## Features
-
-- **Static Model Analysis**: Detect unsafe code or vulnerabilities in serialized AI models.
-- **Adversarial Robustness Testing**: Simulate and test adversarial attacks on inference endpoints.
-- **LLM-Specific Security**: Identify vulnerabilities in Large Language Models (LLMs) such as prompt injection and memory attacks.
-- **Supply Chain Security**: Monitor and validate the integrity of AI/ML artifacts in CI/CD pipelines.
-- **Deployment Monitoring**: Continuous threat monitoring for deployed inference endpoints.
+- **Static Model Analysis**: Detect unsafe code or malicious payloads in serialized AI model files (e.g., Pickle, H5).
+- **Adversarial Robustness Testing**: Evaluate AI models against adversarial attacks to identify vulnerabilities and improve resilience.
+- **LLM Specific Security**: Address vulnerabilities unique to Large Language Models (LLMs), such as prompt leaking, adversarial robustness, and memory attacks.
+- **NLP Model Security**: Perform adversarial testing and data augmentation for Natural Language Processing (NLP) systems.
+- **Multimodal Robustness Testing**: Assess AI model performance across multiple data types, including text, images, audio, and video.
+- **Supply Chain Integrity**: Monitor and validate the integrity of AI/ML artifacts throughout the CI/CD pipeline.
+- **Deployment Monitoring**: Provide real-time monitoring for inference endpoints to detect security threats and anomalies.
 
 ## Modules Overview
 
-1. **Static Analysis**: 
-   - Tool: [Protect AI's ModelScan](https://github.com/protectai/modelscan)
-   - Scans model files for vulnerabilities in formats like Pickle and H5.
+The pipeline integrates best-in-class tools to secure AI systems, categorized into modular components:
 
-2. **Adversarial Testing**:
-   - Tool: [Microsoft Counterfit](https://github.com/Azure/counterfit)
-   - Tests model robustness against adversarial inputs.
+**1. Static Model Analysis**
+  - Scans serialized models for unsafe practices, vulnerabilities, including malicious payloads in Pickle or H5 files.
+  - Tools: [Protect AI's ModelScan](https://github.com/protectai/modelscan)
 
-3. **LLM Security**:
-   - Tool: [NVIDIA's Garak](https://github.com/NVIDIA/garak)
-   - Focuses on vulnerabilities unique to LLMs, including prompt leaking and multimodal attacks.
+**2. Adversarial Robustness Testing**
+  - Tests model robustness against adversarial inputs.
+  - Simulates evasion, poisoning, and extraction attacks to evaluate model vulnerabilities.
+  - Supports adversarial testing for classification and regression models across major ML frameworks.
+  - Tools: [Adversarial Robustness Toolbox (ART)](https://github.com/Trusted-AI/adversarial-robustness-toolbox)
 
-4. **Supply Chain Security**:
-   - Tool: [AIShield Watchtower](https://github.com/bosch-aisecurity-aishield/watchtower)
-   - Monitors the integrity of training artifacts.
+**3. LLM Specific Security**
+  - Probes vulnerabilities unique to LLMs, including prompt leaking, multimodal attacks and adversarial input handling.
+  - Tools: [NVIDIA Garak](https://github.com/NVIDIA/garak)
 
-5. **Deployment Monitoring**:
-   - Tool: [HiddenLayer Model Scanner](https://hiddenlayer.com/model-scanner)
-   - Provides real-time monitoring of deployed AI endpoints.
+**4. NLP Model Security**
+  - Conducts adversarial testing for NLP systems to ensure robustness.
+  - Provides advanced data augmentation to improve training datasets.
+  - Facilitates adversarial training to strengthen model security.
+  - Tools: [TextAttack](https://github.com/QData/TextAttack)
+
+**5. Multimodal Robustness Testing**
+  - Applies data augmentations across text, images, audio, and video to simulate real-world variability.
+  - Tests model robustness under diverse and adversarial conditions.
+  - Tools: [AugLy](https://github.com/facebookresearch/AugLy)
+
+**6. Supply Chain Integrity**
+  - Tracks and validates the integrity of training artifacts in the ML supply chain.
+  - Detects risks and provides actionable insights for secure development pipelines.
+  - Tools: [AIShield Watchtower](https://github.com/bosch-aisecurity-aishield/watchtower)
+
+**7. Deployment Monitoring**
+  - Continuously monitors inference endpoints for security threats.
+  - Detects anomalies and provides alerts for real-time response.
+  - Tools: [HiddenLayer Model Scanner](https://hiddenlayer.com/model-scanner/)
 
 ## Installation
 
@@ -41,7 +59,7 @@ A modular security framework for AI models and inference endpoints, integrating 
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/your-org/aisp.git
+git clone https://github.com/empires-security/aisp.git
 cd aisp
 ```
 
@@ -82,7 +100,7 @@ python modules/llm-security/main.py --endpoint-url <ENDPOINT_URL>
 
 Add the following to your .github/workflows/security.yml:
 ```yaml
-name: AI Security Pipeline
+name: AI Secure Pipeline
 
 on:
   push:
@@ -106,8 +124,19 @@ jobs:
 ## Documentation
 Detailed documentation for setup, usage, and APIs can be found in the docs/ directory.
 
+## Attributions
+
+This project leverages the following open-source tools:
+- **[Adversarial Robustness Toolbox (ART)](https://github.com/Trusted-AI/adversarial-robustness-toolbox)**
+- **[TextAttack](https://github.com/QData/TextAttack)**
+- **[AugLy](https://github.com/facebookresearch/AugLy)**
+- **[Protect AI's ModelScan](https://github.com/protectai/modelscan)**
+- **[NVIDIA Garak](https://github.com/NVIDIA/garak)**
+- **[AIShield Watchtower](https://github.com/bosch-aisecurity-aishield/watchtower)**
+
 ## Contributing
 We welcome contributions! Please see our CONTRIBUTING.md for guidelines on submitting issues, feature requests, or pull requests.
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
+
