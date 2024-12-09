@@ -98,7 +98,7 @@ python -m unittest discover -s tests
 
 The module generates standardized outputs designed for integration into the AI Secure Pipeline. Example fields include:
 
-- module: Identifies the scanning module (e.g., "ModelScan").
+- module: Identifies the scanning module (e.g., "StaticAnalysis").
 - file: The scanned file path.
 - status: The overall scan result (safe or unsafe).
 - issues: A list of detected issues with details.
