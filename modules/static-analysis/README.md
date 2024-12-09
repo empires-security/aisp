@@ -41,14 +41,14 @@ python main.py --file <path_to_model_file> [--output json|text]
 Command:
 
 ```bash
-python main.py --file test_files/example_model.h5 --output json
+python main.py --file test_files/safe_model.pkl --output json
 ```
 
 Output
 ```json
 {
-    "module": "ModelScan",
-    "file": "test_files/example_model.h5",
+    "module": "StaticAnalysis",
+    "file": "test_files/safe_model.pkl",
     "status": "safe",
     "issues": [],
     "metadata": {
@@ -67,8 +67,8 @@ python main.py --file test_files/example_model.h5 --output text
 
 Output:
 ```plaintext
-Module: ModelScan
-File: test_files/example_model.h5
+Module: StaticAnalysis
+File: test_files/safe_model.pkl
 Status: safe
 No issues detected.
 ```
