@@ -79,7 +79,7 @@ docker-compose -f containers/compose/dev-compose.yml up --build
 ### Static Analysis
 Run the static analysis module on a model file:
 ```bash
-python modules/static-analysis/main.py --file path/to/model.pickle
+python modules/static-analysis/main.py --file path/to/model.pickle [--output json|text]
 ```
 
 ### Adversarial Testing

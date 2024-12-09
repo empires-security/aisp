@@ -1,0 +1,1 @@
+modelscan  # Install ModelScan from Protect AI
