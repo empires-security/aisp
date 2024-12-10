@@ -34,6 +34,16 @@ python main.py --file <path_to_model_file> [--output json|text]
   - `json` (default): Outputs results in a JSON format.
   - `text`: Outputs results in a human-readable text format.
 
+## Output Integration
+
+The module generates standardized outputs designed for integration into the AI Secure Pipeline. Example fields include:
+
+- module: Identifies the scanning module (e.g., "StaticAnalysis").
+- file: The scanned file path.
+- status: The overall scan result (safe or unsafe).
+- issues: A list of detected issues with details.
+- metadata: Additional information like file_name and scan_time.
+
 ## Example
 
 ### JSON Output
@@ -62,7 +72,7 @@ Output
 
 Command:
 ```bash
-python main.py --file test_files/example_model.h5 --output text
+python main.py --file test_files/safe_model.pkl --output text
 ```
 
 Output:
@@ -94,13 +104,4 @@ The module includes unit tests for key functionality. To run tests:
 python -m unittest discover -s tests
 ```
 
-## Output Integration
-
-The module generates standardized outputs designed for integration into the AI Secure Pipeline. Example fields include:
-
-- module: Identifies the scanning module (e.g., "StaticAnalysis").
-- file: The scanned file path.
-- status: The overall scan result (safe or unsafe).
-- issues: A list of detected issues with details.
-- metadata: Additional information like file_name and scan_time.
 

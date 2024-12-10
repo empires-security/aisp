@@ -1,10 +1,10 @@
 This project includes components from the following open-source projects:
 
 - Adversarial Robustness Toolbox (ART) Licensed under the MIT License.
-- TextAttack © The TextAttack Team. Licensed under the MIT License.
+- AIShield Watchtower © Bosch AI. Licensed under the Apache License, Version 2.0.
 - AugLy © Meta Platforms, Inc. Licensed under the MIT License.
-- Protect AI's ModelScan © Protect AI. Licensed under the Apache License, Version 2.0.
 - NVIDIA Garak © NVIDIA. Licensed under the Apache License, Version 2.0.
-- AIShield Watchtower © Bosch AI. Licensed under the MIT License.
+- Protect AI's ModelScan © Protect AI. Licensed under the Apache License, Version 2.0.
+- TextAttack © The TextAttack Team. Licensed under the MIT License.
 
 See the respective repositories for full license details.
