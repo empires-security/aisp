@@ -1,1 +1,10 @@
-modelscan  # Install ModelScan from Protect AI
+# Core dependencies
+modelscan
+
+# File format support
+h5py
+onnx
+torch
+tensorflow
+scikit-learn
+joblib
