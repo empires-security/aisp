@@ -1,0 +1,4 @@
+tests/test_data
+tests/test_models
+scripts/test_data.npz
+scripts/*.h5
