@@ -8,7 +8,6 @@ This document provides detailed instructions for integrating the LLM Security Te
 - [GitLab CI Integration](#gitlab-ci-integration)
 - [Circle CI Integration](#circle-ci-integration)
 - [Local Development Integration](#local-development-integration)
-- [API Gateway Integration](#api-gateway-integration)
 - [Monitoring Integration](#monitoring-integration)
 
 ## GitHub Actions Integration
