@@ -98,7 +98,7 @@ Each module addresses critical security dimensions, detailing the types of attac
 ## Roadmap
 | **Phase** | **Description** | **Milestones** |
 |------------------|--------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| **Phase 1**     | Initial Tool Development                                                             | ✅ Static Model Analysis<br>✅ Adversarial Testing<br>✅ LLM Security<br>🔲 NLP Security<br>🔲 Multimodel Testing<br>🔲 Supply Chain Monitor<br>🔲 Deployment Monitor |
+| **Phase 1**     | Initial Tool Development                                                             | ✅ Static Model Analysis<br>✅ Adversarial Testing<br>✅ LLM Security<br>🔲 NLP Security<br>🔲 Multimodal Testing<br>🔲 Supply Chain Monitor<br>🔲 Deployment Monitor |
 | **Phase 2**     | Modular Framework and Automation Integration                                                           | 🔲 Enhance modularity  for standalone usage.<br>🔲 Develop integration scripts for Jenkins, GitHub Actions, SonarQube. |
 | **Phase 3**     | Configuration Management and Monitoring Tools Integration                                              | 🔲 Full integration with tools like **Prometheus**, **Grafana**, and configuration managers.      |
 | **Phase 4**     | Robust Deployment Monitoring and Extended Security Testing                                             | 🔲 Expand **Deployment Monitoring** to include advanced security alerts and threat insights.                          |
