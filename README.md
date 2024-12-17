@@ -1,54 +1,152 @@
 # AI Secure Pipeline (AISP)
 
-A modular and comprehensive framework to safeguard AI models and inference endpoints against emerging threats, integrating seamlessly into DevSecOps pipelines like Jenkins, GitHub Actions, and SonarQube. 
+A modular and comprehensive framework to safeguard AI models and inference endpoints against emerging threats, integrating into DevSecOps pipelines like Jenkins, GitHub Actions and SonarQube. 
 
 ## Features
-- **Static Model Analysis**: Detect unsafe code or malicious payloads in serialized AI model files (e.g., Pickle, H5).
-- **Adversarial Robustness Testing**: Evaluate AI models against adversarial attacks to identify vulnerabilities and improve resilience.
-- **LLM-Specific Security**: Address vulnerabilities unique to Large Language Models (LLMs), such as prompt leaking, adversarial robustness, and memory attacks.
-- **NLP Model Security**: Perform adversarial testing and data augmentation for Natural Language Processing (NLP) systems.
-- **Multimodal Robustness Testing**: Assess AI model performance across multiple data types, including text, images, audio, and video.
-- **Supply Chain Integrity**: Monitor and validate the integrity of AI/ML artifacts throughout the CI/CD pipeline.
-- **Deployment Monitoring**: Provide real-time monitoring for inference endpoints to detect security threats and anomalies.
+
+1. **Static Model Analysis**: Detect unsafe code and malicious payloads in serialized AI model files.
+2. **Adversarial Robustness Testing**: Evaluate and strengthen AI models against adversarial attacks.
+3. **LLM-Specific Security**: Mitigate vulnerabilities like prompt injection, memory attacks, and data leakage in Large Language Models (LLMs).
+4. **NLP Model Security**: Perform adversarial testing and data augmentation for NLP systems.
+5. **Multimodal Robustness Testing**: Assess performance across text, image, audio, and video data types.
+6. **Supply Chain Integrity**: Monitor and validate AI/ML artifact integrity throughout CI/CD pipelines.
+7. **Deployment Monitoring**: Detect real-time threats and anomalies in inference endpoints.
+8. **Modular Integration**: Each module can operate independently or integrate into a unified pipeline with configuration management tools.
 
 ## Modules Overview
 
-The pipeline integrates best-in-class tools to secure AI systems, categorized into modular components:
+Each module addresses critical security dimensions, detailing the types of attacks and capabilities supported. Each module is designed for independent execution but can be integrated into a comprehensive pipeline for enhanced security.
 
-**1. Static Model Analysis**
-  - Analyze serialized AI models for unsafe patterns, vulnerabilities, and malicious payloads.
-  - Foundational step to ensure the integrity of model artifacts before deployment.
-  - Tools: [Protect AI's ModelScan](https://github.com/protectai/modelscan)
+**1. [Static Model Analysis](modules/static-analysis/README.md)**
+- **Objective**: Ensure serialized model artifacts are safe before deployment.
+- **Tools**: [Protect AI's ModelScan](https://github.com/protectai/modelscan).
+- **Capabilities**:
+    - Scans for unsafe deserialization patterns, backdoors, and malicious payloads.
+    - Validates code integrity in formats like Pickle and H5.
+- **Attack Types**:
+    - Payload Injection: Embedding harmful scripts in model serialization files.
+    - Backdoor Injections: Maliciously trained triggers that affect predictions.
 
-**2. Adversarial Robustness Testing**
-  - Supports adversarial testing for classification and regression models across major ML frameworks.
-  - Simulates evasion, poisoning, and extraction attacks to evaluate model vulnerabilities.
-  - Tools: [Adversarial Robustness Toolbox (ART)](https://github.com/Trusted-AI/adversarial-robustness-toolbox)
+**2. [Adversarial Robustness Testing](modules/adversarial-testing/README.md)**
+- **Objective**: Identify and mitigate vulnerabilities in AI models.
+- **Tools**: [Adversarial Robustness Toolbox (ART)](https://github.com/Trusted-AI/adversarial-robustness-toolbox)
+- **Capabilities**:
+    - Simulates adversarial attack scenarios to evaluate robustness.
+    - Provides recommendations for improving resistance to evasion and poisoning.
+- **Attack Types**:
+    - Evasion Attacks: Manipulating inputs to bypass detection (e.g., adversarial examples).
+    - Poisoning Attacks: Introducing malicious data during training to corrupt the model.
+    - Model Extraction: Reverse-engineering model outputs to reconstruct its structure.
 
-**3. LLM-Specific Security**
-  - Address vulnerabilities unique to Large Language Models (LLMs), such as prompt injection, memory attacks, and data leakage.
-  - Critical for securing generative models used in chatbots, assistants, and other user-facing applications.
-  - Tools: [NVIDIA Garak](https://github.com/NVIDIA/garak)
+**3. [LLM-Specific Security](modules/llm-security/README.md)**
+- **Objective**: Address security challenges unique to generative models like GPT and BERT.
+- **Tools**: [NVIDIA Garak](https://github.com/NVIDIA/garak)
+- **Capabilities**:
+    - Detects and mitigates prompt injection, token manipulation, and output-based leakage.
+    - Secures memory management to prevent user-data exposure.
+- **Attack Types**:
+    - Prompt Injection: Manipulating input to produce unintended outputs.
+    - Memory Attacks: Exploiting cached states to extract private data.
+    - Data Leakage: Reconstructing sensitive training data from model responses.
 
 **4. NLP Model Security**
-  - Test and secure NLP models (e.g., classifiers, sentiment analyzers) with adversarial testing and data augmentation.
-  - Ensures the robustness and fairness of NLP pipelines.
-  - Tools: [TextAttack](https://github.com/QData/TextAttack)
+- **Objective**: Enhance the security and fairness of NLP systems.
+- **Tools**: [TextAttack](https://github.com/QData/TextAttack)
+- **Capabilities**:
+    - Performs adversarial testing and automatic data augmentation.
+    - Ensures robustness against biased or unexpected inputs.
+- **Attack Types**:
+    - Text Adversarial Attacks: Synonym swaps, misspellings, and paraphrasing to confuse models.
+    - Bias Exploits: Identifying and mitigating systemic biases in text classifiers.
 
 **5. Multimodal Robustness Testing**
-  - Assess model robustness across multiple data types (text, image, audio, video).
-  - Ensures AI systems can handle real-world data variability and multimodal interactions.
-  - Tools: [AugLy](https://github.com/facebookresearch/AugLy)
+- **Objective**: Secure AI systems that process diverse data types.
+- **Tools**: [AugLy](https://github.com/facebookresearch/AugLy)
+- **Capabilities**:
+    - Evaluates models' robustness across modalities (text, image, audio, video).
+    - Identifies vulnerabilities in cross-modal interactions.
+- **Attack Types**:
+    - Input Perturbations: Slight distortions in visual, auditory, or textual data.
+    - Cross-Modal Exploits: Coordinated attacks targeting multiple data types.
 
 **6. Supply Chain Integrity**
-  - Tracks and validates the integrity of training artifacts in the ML supply chain.
-  - Detects risks and provides actionable insights for secure development pipelines.
-  - Tools: [AIShield Watchtower](https://github.com/bosch-aisecurity-aishield/watchtower)
+- **Objective**: Maintain end-to-end trust in the AI/ML development pipeline.
+- **Tools**: [AIShield Watchtower](https://github.com/bosch-aisecurity-aishield/watchtower)
+- **Capabilities**:
+    - Tracks the provenance and integrity of training datasets, models, and scripts.
+    - Identifies tampering or misconfiguration in pipeline artifacts.
+- **Attack Types**:
+    - Pipeline Poisoning: Tampering with intermediate steps in the CI/CD pipeline.
+    - Artifact Substitution: Replacing trusted models or data with compromised versions.
 
 **7. Deployment Monitoring**
-  - Continuously monitor inference endpoints for security threats, anomalies, and performance issues.
-  - Provides runtime protection for deployed AI systems.
-  - Tools: [HiddenLayer Model Scanner](https://hiddenlayer.com/model-scanner/)
+- **Objective**: Provide runtime protection and real-time monitoring for deployed AI systems.
+- **Tools**: [HiddenLayer Model Scanner](https://hiddenlayer.com/model-scanner/)
+- **Capabilities**:
+    - Detects security threats, anomalies, and performance issues during inference.
+    - Generates alerts for suspicious activity, unauthorized access, or unexpected API behavior.
+- **Attack Types**:
+    - Inference Time Attacks: Inputs crafted to manipulate predictions or trigger vulnerabilities.
+    - Endpoint Exploits: Attempts to misuse or compromise AI model APIs.
+- **Setup Guidance**: 
+    - Provide step-by-step setup for integrating HiddenLayer Model Scanner.
+    - Document API Key usage, secure storage (e.g., Vault, AWS Secrets Manager), and alert configurations.
+- **Open-Source Alternatives**:
+    - For teams prioritizing cost-efficiency, Prometheus and Grafana will serve as the foundational monitoring stack.
+    - Open-source anomaly detection tools will be evaluated for identifying security threats and inference anomalies.
+
+## Roadmap
+| **Phase** | **Description** | **Milestones** |
+|------------------|--------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| **Phase 1**     | Initial Tool Development                                                             | ✅ Static Model Analysis<br>✅ Adversarial Testing<br>✅ LLM Security<br>🔲 NLP Security<br>🔲 Multimodel Testing<br>🔲 Supply Chain Monitor<br>🔲 Deployment Monitor |
+| **Phase 2**     | Modular Framework and Automation Integration                                                           | 🔲 Enhance modularity  for standalone usage.<br>🔲 Develop integration scripts for Jenkins, GitHub Actions, SonarQube. |
+| **Phase 3**     | Configuration Management and Monitoring Tools Integration                                              | 🔲 Full integration with tools like **Prometheus**, **Grafana**, and configuration managers.      |
+| **Phase 4**     | Robust Deployment Monitoring and Extended Security Testing                                             | 🔲 Expand **Deployment Monitoring** to include advanced security alerts and threat insights.                          |
+| **Phase 5**     | End-to-End Pipeline Automation and UI Development                                                      | 🔲 Build a user-friendly dashboard for configuring modules and managing pipeline security workflows.                 |
+
+## DevSecOps Pipeline Integration
+This pipeline demonstrates a comprehensive security approach where AISP modules are integrated at key points to provide continuous security validation from development through deployment. Each phase builds upon the security checks of previous phases, creating multiple layers of protection.
+1. **Development**: Local creation and initial testing of code and models with early security validation. 
+2. **Version Control**: Centralized code management with automated security checks during collaboration. 
+3. **Build**: Creation of deployable artifacts with dependency validation and security scanning. 
+4. **Testing**: Comprehensive validation of functionality and security across all components and models.
+5. **Deployment**: Progressive rollout from staging to production with continuous security monitoring.
+
+![AI Secure Pipeline Integration Diagram](docs/diagrams/AISP-DevSecOps-Integration.png)
+
+Here's a detailed explanation of each phase in the DevSecOps pipeline diagram:
+
+1. **Development**
+    - **Code Development**: Initial development of ML models, scripts, and supporting code
+    - **Model Development**: Creation and training of AI/ML models
+    - **Local Testing**: Preliminary testing with AISP static analysis integration for early vulnerability detection
+    - **Security Integration**: Early static analysis checks during local development to catch issues before commit
+2. **Version Control**
+    - **Git Repository**: Central code repository with supply chain monitoring for dependencies
+    - **Pull Request**: Code review stage with static analysis checks for security vulnerabilities
+    - **Security Integration**: Supply chain monitoring at repository level and static analysis during PR reviews
+3. **Build**
+    - **Build Artifacts**: Compilation and creation of deployable artifacts
+    - **Unit Tests**: Basic functionality testing of individual components
+    - **Package Model**: Model packaging with supply chain validation
+    - **Security Integration**: Supply chain checks during package creation to verify dependencies and artifacts
+4. **Testing**
+    - **Integration Tests**: Testing of combined components and systems
+    - **Model Testing**: Comprehensive model validation with multiple security checks:
+        - LLM Security testing for language model vulnerabilities
+        - NLP Security testing for text-based attacks
+        - Multimodal Testing for cross-modal vulnerabilities
+        - Model Robustness testing for adversarial attacks
+    - **Security Testing**: Final security validation before staging
+    - **Security Integration**: Full suite of AISP security modules for model testing
+5. **Deployment**
+    - **Staging**: Pre-production environment with additional security validation
+        - Secondary LLM security checks
+        - Additional NLP security verification
+        - Extended multimodal testing
+    - **Production**: Live deployment environment
+        - Monitoring: Continuous system monitoring
+        - Security Integration: Runtime security monitoring and threat detection in production
 
 ## Top-Level Structure
 ```plaintext
@@ -105,44 +203,17 @@ python modules/static-analysis/main.py --file path/to/model.pickle [--output jso
 ### Adversarial Testing
 Test a SageMaker endpoint for adversarial robustness:
 ```bash
-python modules/adversarial-testing/main.py --endpoint-name <SAGEMAKER_ENDPOINT_NAME>
+python modules/adversarial-testing/main.py --endpoint <SAGEMAKER_ENDPOINT_NAME>
 ```
 
 ### LLM Security Testing
 Probe an LLM inference endpoint for vulnerabilities:
 ```bash
-python modules/llm-security/main.py --endpoint-url <ENDPOINT_URL>
-```
-
-## Integration into CI/CD
-
-### GitHub Actions
-
-Add the following to your .github/workflows/security.yml:
-```yaml
-name: AI Secure Pipeline
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Static Analysis
-        run: python modules/static-analysis/main.py --file path/to/model.pickle
-
-      - name: Adversarial Testing
-        run: python modules/adversarial-testing/main.py --endpoint-name <SAGEMAKER_ENDPOINT_NAME>
+python modules/llm-security/main.py --endpoint <ENDPOINT_URL>
 ```
 
 ## Documentation
-Detailed documentation for setup, usage, and APIs can be found in the docs/ directory.
+Detailed documentation for setup, usage, and APIs can be found in the [docs/](docs/README.md) directory.
 
 ## Attributions
 
